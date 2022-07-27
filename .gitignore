@@ -1,0 +1,9 @@
+/build
+*.json
+.vscode
+*~
+
+*.log
+*.sum
+*.out
+*.status

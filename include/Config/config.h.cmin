@@ -1,0 +1,13 @@
+#ifndef LINKER_CONFIG_H
+#define LINKER_CONFIG_H
+
+/* Enable LINKER DEBUG checks */
+#cmakedefine ENABLE_LINKER_DEBUG @ENABLE_LINKER_DEBUG@
+
+/* LLVM major version number */
+#cmakedefine LLVM_VERSION_MAJOR @LLVM_VERSION_MAJOR@
+
+/* LLVM minor version number */
+#cmakedefine LLVM_VERSION_MINOR @LLVM_VERSION_MINOR@
+
+#endif /* LINKER_CONFIG_H */
