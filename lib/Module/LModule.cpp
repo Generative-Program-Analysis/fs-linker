@@ -11,10 +11,10 @@
 
 #include "Passes.h"
 
-#include "Config/Version.h"
-#include "Support/Utils.h"
-#include "Module/LModule.h"
-#include "Module/ModuleUtil.h"
+#include "fs-linker/Config/Version.h"
+#include "fs-linker/Support/Utils.h"
+#include "fs-linker/Module/LModule.h"
+#include "fs-linker/Module/ModuleUtil.h"
 
 #include "llvm/Bitcode/BitcodeWriter.h"
 #if LLVM_VERSION_CODE < LLVM_VERSION(8, 0)

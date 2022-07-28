@@ -6,9 +6,9 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-#include "Module/Linker.h"
-#include "Module/LModule.h"
-#include "Support/Utils.h"
+#include "fs-linker/Module/Linker.h"
+#include "fs-linker/Module/LModule.h"
+#include "fs-linker/Support/Utils.h"
 
 #include "llvm/ADT/SmallPtrSet.h"
 #include "llvm/ADT/StringExtras.h"

@@ -200,8 +200,8 @@ endif()
 ################################################################################
 # Generate `config.h`
 ################################################################################
-configure_file(${CMAKE_SOURCE_DIR}/include/Config/config.h.cmin
-  ${CMAKE_BINARY_DIR}/include/Config/config.h)
+configure_file(${CMAKE_SOURCE_DIR}/include/fs-linker/Config/config.h.cmin
+  ${CMAKE_BINARY_DIR}/include/fs-linker/Config/config.h)
 
 ################################################################################
 # Global include directories

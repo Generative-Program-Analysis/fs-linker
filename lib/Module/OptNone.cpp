@@ -9,7 +9,7 @@
 
 #include "Passes.h"
 
-#include "Config/Version.h"
+#include "fs-linker/Config/Version.h"
 
 #include "llvm/ADT/SmallPtrSet.h"
 #include "llvm/IR/Function.h"

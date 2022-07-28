@@ -7,8 +7,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "Support/Utils.h"
-#include "Module/ModuleUtil.h"
+#include "fs-linker/Support/Utils.h"
+#include "fs-linker/Module/ModuleUtil.h"
 
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Analysis/ValueTracking.h"

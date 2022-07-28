@@ -9,8 +9,8 @@
 
 #include "Passes.h"
 
-#include "Config/Version.h"
-#include "Support/Utils.h"
+#include "fs-linker/Config/Version.h"
+#include "fs-linker/Support/Utils.h"
 #include "llvm/Analysis/MemoryBuiltins.h"
 #include "llvm/Analysis/ConstantFolding.h"
 #include "llvm/IR/Constants.h"

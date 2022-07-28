@@ -9,9 +9,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "Config/Version.h"
-#include "Support/Utils.h"
-#include "Module/LinkerModule.h"
+#include "fs-linker/Config/Version.h"
+#include "fs-linker/Support/Utils.h"
+#include "fs-linker/Module/LinkerModule.h"
 
 #include "llvm/Bitcode/BitcodeReader.h"
 #include "llvm/IR/Constants.h"
@@ -194,8 +194,8 @@ OutputMgr::openOutputFile(const std::string &filename) {
 std::unique_ptr<llvm::raw_fd_ostream>
 OutputMgr::openOutputIR() {
   bool file_given = OutputFilename != "";
-  std::string output_ir = file_given ? sys::path::filename(OutputFilename) : "assembly.ll";
-  return openOutputFile(output_ir);
+  llvm::StringRef output_ir = file_given ? sys::path::filename(OutputFilename) : "assembly.ll";
+  return openOutputFile(std::string(output_ir));
 }
 
 //===----------------------------------------------------------------------===//

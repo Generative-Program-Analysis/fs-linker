@@ -7,8 +7,8 @@
 //
 //===----------------------------------------------------------------------===//
 #include "Passes.h"
-#include "Config/Version.h"
-#include "Support/Utils.h"
+#include "fs-linker/Config/Version.h"
+#include "fs-linker/Support/Utils.h"
 #include "llvm/Support/raw_ostream.h"
 
 using namespace llvm;

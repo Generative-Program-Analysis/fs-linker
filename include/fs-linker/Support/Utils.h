@@ -10,7 +10,7 @@
 #ifndef LINKER_UTILS_H
 #define LINKER_UTILS_H
 
-#include "Config/Version.h"
+#include "fs-linker/Config/Version.h"
 
 #include "llvm/Support/CommandLine.h"
 #include "llvm/Support/Debug.h"

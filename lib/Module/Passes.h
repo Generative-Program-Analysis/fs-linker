@@ -10,7 +10,7 @@
 #ifndef LINKER_PASSES_H
 #define LINKER_PASSES_H
 
-#include "Config/Version.h"
+#include "fs-linker/Config/Version.h"
 
 #include "llvm/ADT/Triple.h"
 #include "llvm/CodeGen/IntrinsicLowering.h"

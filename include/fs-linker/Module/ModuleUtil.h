@@ -10,7 +10,7 @@
 #ifndef LINKER_MODULE_UTILS_H
 #define LINKER_MODULE_UTILS_H
 
-#include "Config/Version.h"
+#include "fs-linker/Config/Version.h"
 
 #if LLVM_VERSION_CODE >= LLVM_VERSION(8, 0)
 #include "llvm/IR/InstrTypes.h"

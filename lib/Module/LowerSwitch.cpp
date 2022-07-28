@@ -15,7 +15,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "Passes.h"
-#include "Config/Version.h"
+#include "fs-linker/Config/Version.h"
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/LLVMContext.h"
 #include <algorithm>

@@ -9,7 +9,7 @@
 
 #include "Passes.h"
 
-#include "Support/Utils.h"
+#include "fs-linker/Support/Utils.h"
 
 #include "llvm/IR/GlobalAlias.h"
 #include "llvm/Support/CommandLine.h"

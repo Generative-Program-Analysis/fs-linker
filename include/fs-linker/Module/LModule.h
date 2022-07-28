@@ -10,8 +10,8 @@
 #ifndef LINKER_LMODULE_H
 #define LINKER_LMODULE_H
 
-#include "Config/Version.h"
-#include "Module/LinkerDefines.h"
+#include "fs-linker/Config/Version.h"
+#include "fs-linker/Module/LinkerDefines.h"
 
 #include "llvm/ADT/ArrayRef.h"
 

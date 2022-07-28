@@ -9,7 +9,7 @@
 #ifndef LINKER_LINKER_H
 #define LINKER_LINKER_H
 
-#include "Module/LModule.h"
+#include "fs-linker/Module/LModule.h"
 #include "llvm/ADT/Twine.h"
 #include "llvm/Support/raw_ostream.h"
 
