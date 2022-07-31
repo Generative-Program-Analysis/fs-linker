@@ -152,9 +152,16 @@ OutputMgr::OutputMgr()
 
   // create output directory (OutputDir or "${PWD}")
   bool dir_given = OutputDir != "";
-  SmallString<128> directory(dir_given ? OutputDir : InputFile);
+  SmallString<128> directory;
+  SmallString<128> current_dir;
+  if (auto ec = sys::fs::current_path	(current_dir))
+    linker_error("unable to get current path: %s", ec.message().c_str());
 
-  if (!dir_given) sys::path::remove_filename(directory);
+  if (dir_given)
+    directory = OutputDir;
+  else
+    directory = current_dir;
+
   if (auto ec = sys::fs::make_absolute(directory)) {
     linker_error("unable to determine absolute path: %s", ec.message().c_str());
   }
@@ -297,7 +304,7 @@ void externalsAndGlobalsCheck(const llvm::Module *m) {
 #else
           if (isa<InlineAsm>(ci->getCalledValue())) {
 #endif
-            linker_error("function \"%s\" has inline asm", fnIt->getName().data());
+            linker_message_once(&*fnIt, "function \"%s\" has inline asm", fnIt->getName().data());
           }
         }
       }
@@ -424,7 +431,9 @@ createLibCWrapper(std::vector<std::unique_ptr<llvm::Module>> &modules,
       ft->getParamType(0)));
   args.push_back(&*(stub->arg_begin())); // argc
   auto arg_it = stub->arg_begin();
+  arg_it->setName("argc");
   args.push_back(&*(++arg_it)); // argv
+  arg_it->setName("argv");
   args.push_back(Constant::getNullValue(ft->getParamType(3))); // app_init
   args.push_back(Constant::getNullValue(ft->getParamType(4))); // app_fini
   args.push_back(Constant::getNullValue(ft->getParamType(5))); // rtld_fini
@@ -515,8 +524,8 @@ int main(int argc, char **argv, char **envp) {
   linker::ModuleOptions Opts(EntryPoint, /*Optimize=*/OptimizeModule);
 
   bool link_with_uclibc = (UclibcPath != "");
-  if (!link_with_uclibc)
-    linker_error("must link with uClibc library");
+  // if (!link_with_uclibc)
+  //   linker_error("must link with uClibc library");
 
   if (PosixPath != "") {
     SmallString<128> Path(PosixPath);
@@ -531,7 +540,8 @@ int main(int argc, char **argv, char **envp) {
   }
 
 
-  linkWithUclibc(UclibcPath, loadedModules);
+  if (link_with_uclibc)
+    linkWithUclibc(UclibcPath, loadedModules);
 
   for (const auto &library : LinkLibraries) {
     if (!linker::loadFile(library, mainModule->getContext(), loadedModules,
