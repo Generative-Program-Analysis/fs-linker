@@ -1,13 +1,6 @@
 ==============================================================================
 FS-LINKER Release License
 ==============================================================================
-University of Illinois/NCSA
-Open Source License
-
-
-This light-weight filesystem linker extracts all POSIX runtime linking, uClibc library linking and code optimization/transformation related code from klee - http://klee.github.io/. It performs all the pre-execution tasks as klee. We thereby use KLEE team's open source License. Below is KLEE team's License.
-
-==============================================================================
 KLEE Release License
 ==============================================================================
 University of Illinois/NCSA
