@@ -22,11 +22,11 @@ char OptNonePass::ID;
 
 bool OptNonePass::runOnModule(llvm::Module &M) {
   // todo: modify this if we change external prefix
-  // Find list of functions that start with `klee_` or `llsc_` or `make_symbolic`
+  // Find list of functions that start with `klee_` or `gs_` or `make_symbolic`
   // and mark all functions that contain such call or invoke as optnone
   llvm::SmallPtrSet<llvm::Function *,16> CallingFunctions;
   for (auto &F : M) {
-    if (!F.hasName() || !(F.getName().startswith("klee_") || F.getName().startswith("llsc_") || F.getName().startswith("make_symbolic")))
+    if (!F.hasName() || !(F.getName().startswith("klee_") || F.getName().startswith("gs_") || F.getName().startswith("make_symbolic")))
       continue;
     for (auto *U : F.users()) {
       // skip non-calls and non-invokes

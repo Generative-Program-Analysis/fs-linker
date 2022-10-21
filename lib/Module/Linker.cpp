@@ -125,7 +125,7 @@ Linker::setModule(std::vector<std::unique_ptr<llvm::Module>> &modules,
 
   // Preparing the final module happens in multiple stages
 
-  // Todo: Link with KLEE/LLSC intrinsics library before running any optimizations
+  // Todo: Link with KLEE/GS intrinsics library before running any optimizations
 
   // 1.) Link the modules together
   while (lmodule->link(modules, opts.EntryPoint)) {

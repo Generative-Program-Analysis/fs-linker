@@ -332,7 +332,7 @@ void externalsAndGlobalsCheck(const llvm::Module *m) {
          it = externals.begin(), ie = externals.end();
        it != ie; ++it) {
     const std::string &ext = it->first;
-    if (!modelled.count(ext) && !((ext.rfind("klee_", 0) == 0) || (ext.rfind("llsc_", 0) == 0) || (ext.rfind("make_symbolic", 0) == 0))) {
+    if (!modelled.count(ext) && !((ext.rfind("klee_", 0) == 0) || (ext.rfind("gs_", 0) == 0) || (ext.rfind("make_symbolic", 0) == 0))) {
       if (ext.compare(0, 5, "llvm.") != 0) { // not an LLVM reserved name
         if (unsafe.count(ext)) {
           foundUnsafe.insert(*it);
