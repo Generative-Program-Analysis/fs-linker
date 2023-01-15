@@ -82,6 +82,11 @@ namespace {
                              cl::desc("Allow optimization of functions that "
                                       "contain Engine calls (default=true)"),
                              cl::init(true), cl::cat(ModuleCat));
+
+  cl::opt<bool>
+  NoDCE("no-dce",
+             cl::desc("Disable the built-in DCE (default=false)"),
+             cl::init(false), cl::cat(linker::ModuleCat));
 }
 
 /***/
@@ -94,10 +99,10 @@ bool LModule::link(std::vector<std::unique_ptr<llvm::Module>> &modules,
                    const std::string &entryPoint) {
   auto numRemainingModules = modules.size();
   // Add the currently active module to the list of linkables
-  modules.push_back(std::move(module));
+  if (module) modules.push_back(std::move(module));
   std::string error;
   module = std::unique_ptr<llvm::Module>(
-      linker::linkModules(modules, entryPoint, error));
+      linker::linkModules(modules, NoDCE ? "" : entryPoint, error));
   if (!module)
     linker_error("Could not link files %s", error.c_str());
 
